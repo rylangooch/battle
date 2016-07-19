@@ -1,5 +1,5 @@
 require 'spec_helper'
-require '../battleships/app.rb'
+require '../battle/app.rb'
 
 feature 'Enter names' do
   scenario 'submitting names' do
