@@ -7,4 +7,10 @@ feature 'attacking' do
     click_link 'Attack'
     expect(page).to have_content 'Will attacked Mike'
   end
+
+  scenario 'hp reduced after attack' do
+  sign_in_and_play
+  click_link 'Attack'
+  expect(page).to have_content '90HP'
+  end
 end
