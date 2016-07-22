@@ -18,9 +18,20 @@ describe Game do
   end
 
   describe '#attack' do
-    it 'damages the player' do
-      expect(player_2).to receive(:receive_damage)
-      game.attack
+    context 'both players are alive' do
+      it 'damages the player' do
+        allow(player_2).to receive(:hit_points).and_return(10)
+        expect(player_2).to receive(:receive_damage)
+        game.attack
+      end
+    end
+    context 'one player dies' do
+      it 'ends the game' do
+        allow(player_2).to receive(:receive_damage)
+        allow(player_2).to receive(:hit_points).and_return(0)
+        game.attack
+        expect(game.game_over).to be(true)
+      end
     end
   end
 

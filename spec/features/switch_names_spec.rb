@@ -6,7 +6,7 @@ feature 'switching players' do
     sign_in_and_play
     click_link 'Attack'
     expect(page).to have_content 'player_1 attacked player_2'
-    click_link 'End battle'
+    click_link 'End attack'
     expect(page).to have_content 'player_1 vs. player_2'
     expect(page).to have_content 'player_1: 100HP'
     click_link 'Attack'
