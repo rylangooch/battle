@@ -15,6 +15,14 @@ attr_reader :player_1, :player_2, :players, :game_over
    @players.rotate!
  end
 
+ def self.create(player_1, player_2)
+   @game = Game.new(player_1, player_2)
+ end
+
+ def self.instance
+   @game
+ end
+
  private
 
  def dead?
